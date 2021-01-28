@@ -34,4 +34,4 @@ CloudWatch
 Auto Scaling Groups
 
 
-
+(Full diclosure, We asume you are familiar in the command line, linux, ssh, basic networing and maybe have used AWS for deplying small instances)

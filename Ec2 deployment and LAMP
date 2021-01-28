@@ -1,0 +1,37 @@
+
+
+First thing to do is starting with a web server t2 micro something low cost or free.
+All free tier defaults, during set up in “Advance details” enter your boot-strap script aka the LAMP stack install so it can be done during instance creation.
+
+# Copy paste boot-strap or “bash” script here (up to date 10/2020);
+
+
+#!/bin/bash
+yum update -y
+yum install httpd php php-mysql -y
+amazon-linux-extras install php7.4
+cd /var/www/html 
+wget https://wordpress.org/wordpress-5.5.1.tar.gz
+tar -xzf wordpress-5.5.1.tar.gz
+cp -r wordpress/* /var/www/html/
+rm -rf wordpress
+rm -rf wordpress-5.5.1.tar.gz
+chmod -R 755 wp-content
+chown -R apache:apache wp-content
+service httpd start
+chkconfig httpd on
+
+
+Pro tip: (Remember to install the most up to date php and wordpress.. Or you will have a couple of wacky issues during the site configuration) 
+
+This install and configuration sets up LAMP and moves all wordpress to the /var/www/html directory
+
+Changes the ownership and group to apache for wp-content file, this way apache can write to word press files. (warning: this may make wp vulnerable to apache attacks)
+
+(optional): A good option for a safe work around here: https://serverfault.com/questions/696509/how-do-i-revoke-ownership-of-a-directory-from-apache-service-account-after-an-er
+
+
+
+When the instance is ready, connect via web or ssh, just to be sure you are able to follow the “connect” instructions.
+
+Next is setting up security groups (could be done before the instance creation too and add it during the initial creation. 

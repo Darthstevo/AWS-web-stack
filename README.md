@@ -7,10 +7,10 @@ Getting hands on with AWS services.
 The infrastructure design for this is to have a reliable and fail proof/redundant web stack..
 
 
-## There are plans to automate in the future. have a “2-way door” decision, look at failures and remove them. ##
-
 Going by the 5 Pillars of a well-Architected framework;
-Operational Excellence:
+
+
+* Operational Excellence: Plans to automate in the future. have a “2-way door” decision, look at failures and remove them.
 
 * Security: Create users with least privilege, separate duties, enable traceability by monitoring and alerting. Apply security at all layers. Plan for security events.
 
